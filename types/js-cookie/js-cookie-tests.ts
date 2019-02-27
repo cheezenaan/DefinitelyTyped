@@ -10,11 +10,8 @@ Cookies.set('name', 'value', { secure: true });
 Cookies.set('name', 'value', { domain: '' });
 Cookies.set('name', 'value', { path: '' });
 
-// $ExpectType string | undefined
-Cookies.get('name');
-
-// $ExpectType { [key: string]: string; }
-Cookies.get();
+// $ExpectType string | object | { [key: string]: string; }
+Cookies.get("name");
 
 Cookies.remove('name');
 Cookies.remove('name', { path: '' });
@@ -24,11 +21,8 @@ Cookies2; // $ExpectType CookiesStatic<object>
 
 Cookies.set('name', { foo: 'bar' });
 
-// $ExpectType any
-Cookies.getJSON('name');
-
-// $ExpectType { [key: string]: any; }
-Cookies.getJSON();
+// $ExpectType object | { [key: string]: any; }
+Cookies.getJSON("name");
 
 document.cookie = 'escaped=%u5317';
 document.cookie = 'default=%E5%8C%97';

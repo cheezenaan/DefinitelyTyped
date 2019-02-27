@@ -46,25 +46,16 @@ declare namespace Cookies {
 
         /**
          * Read cookie
+         * (If name does not pass returns all available cookies)
          */
-        get(name: string): string | undefined;
-
-        /**
-         * Read all available cookies
-         */
-        get(): {[key: string]: string};
+        get(name?: string): { [key: string]: string } | object | string;
 
         /**
          * Returns the parsed representation of the string
          * stored in the cookie according to JSON.parse
+         * (if name does not pass returns all cookies)
          */
-        getJSON(name: string): any;
-
-        /**
-         * Returns the parsed representation of
-         * all cookies according to JSON.parse
-         */
-        getJSON(): {[key: string]: any};
+        getJSON(name?: string): { [key: string]: any } | object;
 
         /**
          * Delete cookie
